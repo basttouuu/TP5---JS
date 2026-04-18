@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background-image: url(../img/absolute_hugo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* navigation */
+.navbar {
+  top: 0;
+  position: relative;
+  background: #0f161d;
+  color: #ffffff;
+  display: flex;
+  padding: 15px 30px;
+  min-height: 90px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  border-bottom: 1px solid #dddddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-links ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar .nav-links ul li a {
+  color: #ffffff;
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.navbar .nav-links ul li a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.navbar .nav-links ul li a:hover,
+.navbar .nav-links ul li.active a {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* maudit header  */
+header {
+  min-height: 120px;
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #dddddd;
+  background: #000000;
+}
+
+.leCarreDuT {
+  background-color: #000000;
+  border-radius: 10px;
+  width: min(750px, 100%);
+  display: block;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.LaGrandeCarreDuT {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.LaGrandeCarreDuT h1 {
+  color: aqua;
+  font-size: clamp(28px, 4vw, 36px);
+  margin: 20px;
+  text-align: center;
+}
+
+.MiniCarreduT {
+  background-color: #000000;
+  border-radius: 10px;
+  width: min(750px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#gestionResults {
+  width: min(750px, 100%);
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#gestionToDoAppActive h2,
+#gestionToDoAppCompleted h2,
+#displayToDoAppActive h2,
+#displayToDoAppCompleted h2 {
+  display: flex;
+  color: #ffffff;
+  font-size: 24px;
+  margin: 8px 0 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.add-btn{
+  display: flex;
+  background-color: #0f161d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.complete-btn{
+  display: flex;
+  background-color: #0f161d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  justify-content: center;
+}
+
+.DIV2LATASKAJOUTER {
+  background-color: #0f161d;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px;
+  margin: 14px auto;
+}
+
+.CONTENU2LATASK {
+  color: #ffffff;
+  font-size: 18px;
+  margin-right: 10px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.DIV2LATASKAJOUTER button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-btn:hover,
+.complete-btn:hover,
+.DIV2LATASKAJOUTER button:hover {
+  background-color: #1a2633;
+}
+
+.add-btn:active,
+.complete-btn:active,
+.DIV2LATASKAJOUTER button:active {
+  transform: translateY(1px);
+}
+
+.fouille-controls,
+.chasse-taches {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.fouille-controls label,
+.chasse-taches label {
+  font-weight: 600;
+}
+
+.fouille-input,
+.detecteur-flemme {
+  width: min(420px, 100%);
+  background: #0f161d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.fouille-input:focus-visible,
+.detecteur-flemme:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.fouille-results,
+.search-results {
+  width: 100%;
+}
+
+.blabla-meme {
+  text-align: center;
+  color: #d9e4ef;
+  margin-bottom: 12px;
+}
+
+.search-meta {
+  text-align: center;
+  color: #d9e4ef;
+  margin-bottom: 12px;
+}
+
+.fouille-controls .add-btn,
+.fouille-controls .complete-btn,
+.chasse-taches .add-btn,
+.chasse-taches .complete-btn {
+  margin: 0;
+}
+
+.alerte-drama {
+  color: #ff8a8a;
+}
+
+.form-chaud {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+}
+
+.duo-boss {
+  display: grid;
+  gap: 6px;
+}
+
+.duo-boss label {
+  font-weight: 600;
+}
+
+.boutons-chaos {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boutons-chaos .add-btn,
+.boutons-chaos .complete-btn {
+  margin: 0;
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche - To Do App</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Navigation principale">
+            <a id="logo" class="logo" href="https://github.com/basttouuu" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/img/hugobg.png" alt="Logo Hugo Météo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li class="active"><a href="./recherche.html" aria-current="page">RECHERCHER</a></li>
+                    <li><a href="https://youtube.com/shorts/Yp81_yOcj1Q?si=v9aiNbU4gWx46_tN" target="_blank" rel="noopener noreferrer">2.2K</a></li>
+                    <li><a href="gestion.html">GESTION</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="LaGrandeCarreDuT">
+        <section class="MiniCarreduT" aria-labelledby="search-title">
+            <h1 id="search-title">Rechercher des tâches</h1>
+        </section>
+
+        <section class="leCarreDuT" aria-label="Zone de recherche">
+            <div class="chasse-taches">
+                <label for="searchInput">Recherche</label>
+                <input id="searchInput" class="detecteur-flemme" type="text" placeholder="Nom ou contenu de la tâche" autocomplete="off">
+                <button id="searchBtn" class="add-btn" type="button">Chercher</button>
+                <button id="clearSearchBtn" class="complete-btn" type="button">Effacer</button>
+            </div>
+        </section>
+
+        <section class="leCarreDuT" aria-labelledby="search-results-title">
+            <div id="searchResults" class="search-results">
+                <h2 id="search-results-title">Resultats</h2>
+                <p class="search-meta">Tape un mot-cle pour filtrer les taches.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

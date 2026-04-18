@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion - To Do App</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Navigation principale">
+            <a id="logo" class="logo" href="https://github.com/basttouuu" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/img/hugobg.png" alt="Logo Hugo Météo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="./recherche.html">RECHERCHER</a></li>
+                    <li><a href="https://youtube.com/shorts/Yp81_yOcj1Q?si=v9aiNbU4gWx46_tN" target="_blank" rel="noopener noreferrer">2.2K</a></li>
+                    <li class="active"><a href="gestion.html" aria-current="page">GESTION</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="LaGrandeCarreDuT">
+        <section class="MiniCarreduT" aria-labelledby="gestion-title">
+            <h1 id="gestion-title">Gestion de la To Do App</h1>
+        </section>
+
+        <section id="gestionResults" aria-live="polite" aria-label="Resultats des actions">
+            <p class="blabla-meme">Ajoute, modifie, supprime et termine tes tâches depuis cette page.</p>
+        </section>
+
+        <section class="leCarreDuT" aria-label="Formulaire de gestion des taches">
+            <form id="gestionTaskForm" class="form-chaud">
+                <div class="duo-boss">
+                    <label for="taskNomInput">Nom</label>
+                    <input id="taskNomInput" class="fouille-input" type="text" placeholder="Ex: Basic-Fit" required>
+                </div>
+                <div class="duo-boss">
+                    <label for="taskContentInput">Contenu</label>
+                    <input id="taskContentInput" class="fouille-input" type="text" placeholder="Ex: Faire les bras et les pecs, surtout pas les jambes" required>
+                </div>
+                <div class="boutons-chaos">
+                    <button id="taskSaveBtn" class="add-btn" type="submit">Ajouter</button>
+                    <button id="taskCancelEditBtn" class="complete-btn" type="button" hidden>Annuler</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="leCarreDuT" aria-labelledby="gestion-active-title">
+            <div id="gestionToDoAppActive">
+                <h2 id="gestion-active-title">Taches Actives</h2>
+            </div>
+        </section>
+
+        <section class="leCarreDuT" aria-labelledby="gestion-completed-title">
+            <div id="gestionToDoAppCompleted">
+                <h2 id="gestion-completed-title">Taches Terminees</h2>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

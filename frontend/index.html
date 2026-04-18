@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - To Do App</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Navigation principale">
+            <a id="logo" class="logo" href="https://github.com/basttouuu" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/img/hugobg.png" alt="Logo Hugo Météo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li class="active"><a href="index.html" aria-current="page">HOME</a></li>
+                    <li><a href="./templates/recherche.html">RECHERCHER</a></li>
+                    <li><a href="https://youtube.com/shorts/Yp81_yOcj1Q?si=v9aiNbU4gWx46_tN" target="_blank" rel="noopener noreferrer">2.2K</a></li>
+                    <li><a href="./templates/gestion.html">GESTION</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="LaGrandeCarreDuT">
+        <section class="MiniCarreduT" aria-labelledby="home-title">
+            <h1 id="home-title">To Do App</h1>
+        </section>
+
+        <section class="leCarreDuT" aria-labelledby="home-active-title">
+            <div id="displayToDoAppActive">
+                <h2 id="home-active-title">Taches Actives</h2>
+            </div>
+        </section>
+
+        <section class="leCarreDuT" aria-labelledby="home-completed-title">
+            <div id="displayToDoAppCompleted">
+                <h2 id="home-completed-title">Taches Terminees</h2>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

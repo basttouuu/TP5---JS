@@ -1,0 +1,19 @@
+{
+  "name": "todoapp2hugo",
+  "version": "1.0.0",
+  "description": "pas d'idée dsl",
+  "license": "ISC",
+  "author": "Hugo PAULIER",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
