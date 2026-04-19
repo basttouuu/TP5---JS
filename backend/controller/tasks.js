@@ -1,8 +1,11 @@
+// ici on importe les modules nécessaires et fonction (controller) pour les routes de tâches
 const fs = require("fs");
 const path = require("path");
 
+// ensuite on définit le chemin vers le fichier de données JSON (alias les données de nos tâches)
 const dataPath = path.join(__dirname, "../data/data.json");
 
+// pour un gain de temps et de clarté, j'ai fais une méthode "readData" pour lire les données du fichier JSON
 const readData = () => {
   const rawData = fs.readFileSync(dataPath, "utf-8");
   const parsed = JSON.parse(rawData);
@@ -12,15 +15,18 @@ const readData = () => {
   return parsed;
 };
 
+// et une méthode "writeData" pour écrire les données dans le fichier JSON
 const writeData = (data) => {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), "utf-8");
 };
 
+// une petite fonction pour parser les ID des tâches, ça évite de répéter ce code dans chaque méthode qui a besoin de l'ID
 const parseId = (value) => {
   const id = Number.parseInt(value, 10);
   return Number.isInteger(id) ? id : null;
 };
 
+// et on commence avec la première méthode du controller, "getAllTasks", qui lit les données du fichier JSON et renvoie la liste des tâches
 const getAllTasks = (req, res) => {
   try {
     const data = readData();
@@ -30,6 +36,7 @@ const getAllTasks = (req, res) => {
   }
 };
 
+// ensuite on a la méthode "getTaskById" qui prend un ID en paramètre, lit les données du fichier JSON, cherche la tâche correspondante et la renvoie
 const getTaskById = (req, res) => {
   try {
     const id = parseId(req.params.id);
@@ -50,6 +57,7 @@ const getTaskById = (req, res) => {
   }
 };
 
+// ensuite on a la méthode "addTask" qui rajoute une nouvelle tâche dans le fichier JSON, avec un ID unique généré automatiquement, et renvoie la tâche créée en réponse
 const addTask = (req, res) => {
   try {
     const { nom, content } = req.body;
@@ -76,6 +84,8 @@ const addTask = (req, res) => {
   }
 };
 
+
+// ensuite nous avons la méthode "updateTask" qui prend un ID en paramètre et les données à mettre à jour dans le corps de la requête
 const updateTask = (req, res) => {
   try {
     const id = parseId(req.params.id);
@@ -102,6 +112,7 @@ const updateTask = (req, res) => {
   }
 };
 
+// l'avant-dernière méthode du controller, "deleteTask", qui prend un ID en paramètre, cherche la tâche correspondante dans le fichier JSON, la supprime et renvoie un message de confirmation
 const deleteTask = (req, res) => {
   try {
     const id = parseId(req.params.id);
@@ -125,6 +136,7 @@ const deleteTask = (req, res) => {
   }
 };
 
+// et pour finir, la méthode "searchTasks" qui prend une query en paramètre, lit les données du fichier JSON, filtre les tâches qui correspondent à la query (en cherchant dans le nom et le contenu) et renvoie la liste des tâches filtrées
 const searchTasks = (req, res) => {
   try {
     const query = String(req.query.q || "").toLowerCase().trim();

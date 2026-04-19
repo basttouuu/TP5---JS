@@ -1,9 +1,11 @@
+/* on commence par reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* body */
 html, body {
   height: 100%;
   width: 100%;
@@ -98,6 +100,7 @@ header {
   background: #000000;
 }
 
+/* c'est la partie pour faire les "blocs" ou "boites" pour les tâches, je ne sais pas comment les appeler dsl, qui font se mettre en arrière-plan de l'injection js */
 .leCarreDuT {
   background-color: #000000;
   border-radius: 10px;
@@ -158,7 +161,8 @@ header {
   align-items: center;
 }
 
-
+/* ici on attaque le css de la page gestion  */
+/* les boutons */
 .add-btn{
   display: flex;
   background-color: #0f161d;
@@ -314,3 +318,13 @@ header {
   margin: 0;
 }
 
+/* et pour finir, le footer que je fais au dernier moment */
+footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #0f161d;
+  border-top: 1px solid #dddddd;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
