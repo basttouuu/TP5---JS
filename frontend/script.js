@@ -1,11 +1,14 @@
+// ici j'ai fais des fonctions pour me simplifier la vie et éviter de répéter du code.
+// la première c'est pour normaliser les textes de recherche, ça évite d'avoir des problèmes de casse ou d'espaces
 function normalizeText(value) {
   return String(value || "").toLowerCase().trim();
 }
-
+// la deuxième c'est pour essayer de parser une réponse JSON, mais si ça échoue, ça renvoie null au lieu de planter
 function getJsonOrNull(response) {
   return response.json().catch(() => null);
 }
 
+// et la troisième c'est pour faire des requêtes à l'API de manière plus simple, avec gestion des erreurs intégrée
 async function apiRequest(url, options = {}) {
   const response = await fetch(url, options);
   const body = await getJsonOrNull(response);
@@ -18,12 +21,20 @@ async function apiRequest(url, options = {}) {
   return body;
 }
 
+// cette fonction c'est pour afficher un message dans une zone spécifique de la page, avec une classe différente si c'est une erreur ou pas
 function showMessage(targetId, message, isError = false) {
   const target = document.getElementById(targetId);
   if (!target) return;
-  target.innerHTML = `<p class="blabla-meme ${isError ? "alerte-drama" : ""}">${message}</p>`;
+  
+  target.innerHTML = ""; 
+  const p = document.createElement("p");
+  p.className = isError ? "blabla-meme alerte-drama" : "blabla-meme";
+  p.textContent = message; 
+  
+  target.appendChild(p);
 }
 
+// cette fonction c'est pour créer une "carte" de tâche à partir d'un objet tâche, elle retourne un élément HTML qu'on peut ensuite ajouter à la page
 function createTaskCard(todo) {
   const card = document.createElement("div");
   card.className = "DIV2LATASKAJOUTER";
@@ -36,6 +47,7 @@ function createTaskCard(todo) {
   return card;
 }
 
+// cette fonction c'est pour afficher la liste des tâches sur la page d'accueil, elle sépare les tâches actives et terminées dans deux sections différentes
 function renderHome(tasks) {
   const active = document.getElementById("displayToDoAppActive");
   const completed = document.getElementById("displayToDoAppCompleted");
@@ -51,6 +63,7 @@ function renderHome(tasks) {
   });
 }
 
+// cette fonction c'est pour gérer la page de recherche, elle ajoute des événements au formulaire de recherche et affiche les résultats dans une section dédiée
 async function renderSearch() {
   const input = document.getElementById("searchInput");
   const button = document.getElementById("searchBtn");
@@ -63,11 +76,18 @@ async function renderSearch() {
       const query = normalizeText(input.value);
       const tasks = await apiRequest(`/todo/search?q=${encodeURIComponent(query)}`);
 
-      results.innerHTML = "<h2 id=\"search-results-title\">Resultats</h2>";
-      results.insertAdjacentHTML("beforeend", `<p class="blabla-meme">${tasks.length} tache(s) trouvee(s)</p>`);
+      results.innerHTML = '<h2 id="search-results-title">Resultats</h2>';
+
+      const countMsg = document.createElement("p");
+      countMsg.className = "blabla-meme";
+      countMsg.textContent = `${tasks.length} tache(s) trouvee(s)`;
+      results.appendChild(countMsg);
 
       if (tasks.length === 0) {
-        results.insertAdjacentHTML("beforeend", "<p class=\"blabla-meme\">Aucun resultat.</p>");
+        const emptyMsg = document.createElement("p");
+        emptyMsg.className = "blabla-meme";
+        emptyMsg.textContent = "Aucun resultat.";
+        results.appendChild(emptyMsg);
         return;
       }
 
@@ -75,8 +95,12 @@ async function renderSearch() {
         results.appendChild(createTaskCard(task));
       });
     } catch (error) {
-      results.innerHTML = "<h2 id=\"search-results-title\">Resultats</h2>";
-      results.insertAdjacentHTML("beforeend", `<p class="blabla-meme alerte-drama">${error.message}</p>`);
+      results.innerHTML = '<h2 id="search-results-title">Resultats</h2>';
+      
+      const errorMsg = document.createElement("p");
+      errorMsg.className = "blabla-meme alerte-drama";
+      errorMsg.textContent = error.message;
+      results.appendChild(errorMsg);
     }
   };
 
@@ -92,6 +116,7 @@ async function renderSearch() {
   draw();
 }
 
+// cette fonction c'est pour gérer la page de gestion des tâches
 function setupGestionForm(refresh) {
   const form = document.getElementById("gestionTaskForm");
   const nomInput = document.getElementById("taskNomInput");
@@ -159,6 +184,7 @@ function setupGestionForm(refresh) {
   };
 }
 
+// cette fonction c'est pour gérer la page de gestion des tâches
 async function renderGestion() {
   const active = document.getElementById("gestionToDoAppActive");
   const completed = document.getElementById("gestionToDoAppCompleted");
@@ -233,6 +259,7 @@ async function renderGestion() {
   load();
 }
 
+// et pour finir, cette fonction c'est pour initialiser la page
 async function initPage() {
   if (document.getElementById("searchResults")) {
     renderSearch();
@@ -253,4 +280,3 @@ async function initPage() {
 }
 
 document.addEventListener("DOMContentLoaded", initPage);
-
