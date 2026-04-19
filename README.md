@@ -56,4 +56,10 @@ Application disponible sur:
 
 ## Gestion d'erreurs
 - Backend: reponses avec `res.status(...)` et message JSON (`400`, `404`, `500`)
-- Frontend: affichage des erreurs utilisateur sur les pages
+- Frontend: affichage des erreurs utilisateur sur les pages...
+
+## User Interface
+- `index` : page d'accueil avec liste des taches (le logo dans le header est cliquable et redirige vers cette page)
+- `gestion` : page de gestion des taches (ajout, modification, suppression)
+- `recherche` : page de recherche des taches
+- `2.2K` : je vous laisse deviner ce que c'est, c'est pas compliqué à trouver
